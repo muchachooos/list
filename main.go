@@ -47,7 +47,6 @@ func add(root *Element, value int) {
 
 // Заменяет значение элемента под номером number на value
 func set(root *Element, number int, value int) {
-
 }
 
 // Заменяет значение элемента под номером number на value
