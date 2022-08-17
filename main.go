@@ -36,3 +36,20 @@ func print(root *Element) {
 		print(root.nextElement)
 	}
 }
+
+// Удаляет последний элемент в списке
+func delete(root *Element, value int) {
+}
+
+// Добавляет элемент в конец списка со знаяением value
+func add(root *Element, value int) {
+}
+
+// Заменяет значение элемента под номером number на value
+func set(root *Element, number int, value int) {
+
+}
+
+// Заменяет значение элемента под номером number на value
+func reverse(root *Element) {
+}
