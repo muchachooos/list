@@ -1,10 +1,12 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+)
 
 type Element struct {
-	value       int
-	nextElement *Element
+	value int
+	next  *Element
 }
 
 func main() {
@@ -28,20 +30,31 @@ func main() {
 		&element2,
 	}
 	print(&element1)
+
+	delete(&element1)
+
+	print(&element1)
+}
+
+// Удаляет последний элемент в списке
+func delete(root *Element) {
+	if root.next != nil {
+		if root.next.next == nil {
+			root.next = nil
+		} else {
+			delete(root.next)
+		}
+	}
 }
 
 func print(root *Element) {
 	fmt.Println(root.value)
-	if root.nextElement != nil {
-		print(root.nextElement)
+	if root.next != nil {
+		print(root.next)
 	}
 }
 
-// Удаляет последний элемент в списке
-func delete(root *Element, value int) {
-}
-
-// Добавляет элемент в конец списка со знаяением value
+// Добавляет элемент в конец списка со значением value
 func add(root *Element, value int) {
 }
 
