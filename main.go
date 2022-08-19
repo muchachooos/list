@@ -30,9 +30,7 @@ func main() {
 		&element2,
 	}
 	print(&element1)
-
 	delete(&element1)
-
 	print(&element1)
 }
 
