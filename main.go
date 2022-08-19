@@ -36,6 +36,13 @@ func main() {
 	print(&element1)
 }
 
+func print(root *Element) {
+	fmt.Println(root.value)
+	if root.next != nil {
+		print(root.next)
+	}
+}
+
 // Удаляет последний элемент в списке
 func delete(root *Element) {
 	if root.next != nil {
@@ -44,13 +51,6 @@ func delete(root *Element) {
 		} else {
 			delete(root.next)
 		}
-	}
-}
-
-func print(root *Element) {
-	fmt.Println(root.value)
-	if root.next != nil {
-		print(root.next)
 	}
 }
 
