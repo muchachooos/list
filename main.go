@@ -55,7 +55,7 @@ func delete(root *Element) {
 	}
 }
 
-// Добавляет элемент в конец списка со значением value
+// Добавляет элемент в конец списка со значением val
 func add(root *Element, val int) {
 	if root.next == nil {
 		root.next = &Element{val, nil}
@@ -64,12 +64,12 @@ func add(root *Element, val int) {
 	add(root.next, val)
 }
 
-// Заменяет значение элемента под номером number на value
-func set(root *Element, number int, value int) {
+// Заменяет значение элемента под номером num на val
+func set(root *Element, num int, val int) {
 
 }
 
-// Заменяет значение элемента под номером number на value
+// Заменяет значение элемента под номером number на val
 func reverse(root *Element) {
 
 }
