@@ -64,7 +64,7 @@ func add(root *Element, val int) {
 	add(root.next, val)
 }
 
-// Заменяет значение элемента под номером num на val
+// Заменяет value элемента под номером num на val
 func set(root *Element, num int, val int) {
 
 }
