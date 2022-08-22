@@ -31,6 +31,10 @@ func main() {
 	}
 	print(&element1)
 	add(&element1, 5)
+	add(&element1, 6)
+	print(&element1)
+	delete(&element1)
+	print(&element1)
 }
 
 func print(root *Element) {
@@ -53,22 +57,12 @@ func delete(root *Element) {
 
 // Добавляет элемент в конец списка со значением value
 func add(root *Element, val int) {
-	addElement := Element{val, nil}
 	if root.next == nil {
-		root.next = &addElement
+		root.next = &Element{val, nil}
 		return
 	}
 	add(root.next, val)
 }
-
-//func add(root *Element, val int) {
-//	var addElement = &Element{val, nil}
-//	if root.next == nil {
-//		root.next = addElement
-//		return
-//	}
-//	add(root.next, val)
-//}
 
 // Заменяет значение элемента под номером number на value
 func set(root *Element, number int, value int) {
