@@ -14,26 +14,26 @@ func main() {
 		3,
 		nil,
 	}
-
 	element2 := Element{
 		2,
 		&element3,
 	}
-
 	element1 := Element{
 		1,
 		&element2,
 	}
-
 	element0 := Element{
 		0,
 		&element1,
 	}
 	print(&element0)
-	set(&element0, 0, 2, 5)
+	set(&element0, 1, 11)
+	println("=========")
+	print(&element0)
+	set(&element0, 2, 22)
+	println("=========")
 	print(&element0)
 }
-
 func print(root *Element) {
 	fmt.Println(root.value)
 	if root.next != nil {
@@ -50,7 +50,6 @@ func delete(root *Element) {
 			delete(root.next)
 		}
 	}
-
 }
 
 // Добавляет элемент в конец списка со значением val
@@ -63,8 +62,10 @@ func add(root *Element, val int) {
 }
 
 // Заменяет value элемента под номером num на val
-func set(root *Element, i, num, val int) {
-
+func set(root *Element, num, val int) {
+	setValue(root.next, 0, num, val)
+}
+func setValue(root *Element, i, num, val int) {
 	s := func() {
 		if root == nil {
 			fmt.Println("Stop!")
@@ -74,13 +75,10 @@ func set(root *Element, i, num, val int) {
 			root.value = val
 		} else {
 			i++
-			set(root.next, i, num, val)
+			setValue(root.next, i, num, val)
 		}
-		i = 0
 	}
 	s()
 }
-
 func reverse(root *Element) {
-
 }
