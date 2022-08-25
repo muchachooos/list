@@ -4,8 +4,6 @@ import (
 	"fmt"
 )
 
-var i int
-
 type Element struct {
 	value int
 	next  *Element
@@ -19,36 +17,21 @@ func main() {
 
 	element2 := Element{
 		2,
-		&element4,
+		&element3,
 	}
 
 	element1 := Element{
 		1,
-		&element3,
+		&element2,
 	}
 
 	element0 := Element{
 		0,
-		&element2,
+		&element1,
 	}
 	print(&element0)
-	set(&element0, 3, 5)
-}
-
-// Заменяет value элемента под номером num на val
-func set(root *Element, num int, val int) {
-	if root == nil {
-		fmt.Println("")
-		return
-	}
-
-	if num == i {
-		root.value = val
-	} else {
-		i++
-		set(root.next, num, val)
-	}
-	i = 0
+	set(&element0, 0, 2, 5)
+	print(&element0)
 }
 
 func print(root *Element) {
@@ -67,6 +50,7 @@ func delete(root *Element) {
 			delete(root.next)
 		}
 	}
+
 }
 
 // Добавляет элемент в конец списка со значением val
@@ -78,7 +62,25 @@ func add(root *Element, val int) {
 	add(root.next, val)
 }
 
-// Заменяет значение элемента под номером number на val
+// Заменяет value элемента под номером num на val
+func set(root *Element, i, num, val int) {
+
+	s := func() {
+		if root == nil {
+			fmt.Println("Stop!")
+			return
+		}
+		if num == i {
+			root.value = val
+		} else {
+			i++
+			set(root.next, i, num, val)
+		}
+		i = 0
+	}
+	s()
+}
+
 func reverse(root *Element) {
 
 }
