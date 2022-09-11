@@ -27,14 +27,27 @@ func main() {
 		&element1,
 	}
 	print(&element0)
-	set(&element0, 1, 11)
-	println("=========")
+	println("---------")
+	delete(&element0)
 	print(&element0)
-	set(&element0, 2, 22)
-	println("=========")
+	println("---------")
+	add(&element0, 33)
 	print(&element0)
+	println("---------")
+	set(&element0, 1, 22)
+	print(&element0)
+	println("---------")
+	reverse(&element0)
+	print(&element3)
+	println("---------")
 }
+
 func print(root *Element) {
+	if root == nil {
+		fmt.Println("Stop!")
+		return
+	}
+
 	fmt.Println(root.value)
 	if root.next != nil {
 		print(root.next)
@@ -43,6 +56,11 @@ func print(root *Element) {
 
 // Удаляет последний элемент в списке
 func delete(root *Element) {
+	if root == nil {
+		fmt.Println("Stop!")
+		return
+	}
+
 	if root.next != nil {
 		if root.next.next == nil {
 			root.next = nil
@@ -54,6 +72,10 @@ func delete(root *Element) {
 
 // Добавляет элемент в конец списка со значением val
 func add(root *Element, val int) {
+	if root == nil {
+		fmt.Println("Stop!")
+		return
+	}
 	if root.next == nil {
 		root.next = &Element{val, nil}
 		return
@@ -80,5 +102,22 @@ func setValue(root *Element, i, num, val int) {
 	}
 	s()
 }
+
 func reverse(root *Element) {
+	if root == nil {
+		fmt.Println("Error!")
+		return
+	}
+	//o := root
+
+	var j *Element = nil
+	var i *Element = nil
+
+	for root != nil {
+		j = root.next
+		root.next = i
+		i = root
+		root = j
+	}
+	return
 }
