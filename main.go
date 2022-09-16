@@ -115,7 +115,6 @@ func reverse(list *Element) {
 	for list != nil {
 		currentKeeper = list.next
 		list.next = nextKeeper
-
 		nextKeeper = list
 		list = currentKeeper
 	}
