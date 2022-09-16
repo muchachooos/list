@@ -26,7 +26,7 @@ func main() {
 		0,
 		&element1,
 	}
-	print(&element0)
+	/*print(&element0)
 	println("---------")
 	delete(&element0)
 	print(&element0)
@@ -36,7 +36,7 @@ func main() {
 	println("---------")
 	set(&element0, 1, 22)
 	print(&element0)
-	println("---------")
+	println("---------")*/
 	reverse(&element0)
 	print(&element3)
 	println("---------")
@@ -44,7 +44,7 @@ func main() {
 
 func print(root *Element) {
 	if root == nil {
-		fmt.Println("Stop!")
+		fmt.Println("Ck!")
 		return
 	}
 
@@ -57,7 +57,7 @@ func print(root *Element) {
 // Удаляет последний элемент в списке
 func delete(root *Element) {
 	if root == nil {
-		fmt.Println("Stop!")
+		fmt.Println("Bl!")
 		return
 	}
 
@@ -73,7 +73,7 @@ func delete(root *Element) {
 // Добавляет элемент в конец списка со значением val
 func add(root *Element, val int) {
 	if root == nil {
-		fmt.Println("Stop!")
+		fmt.Println("AAA!")
 		return
 	}
 	if root.next == nil {
@@ -103,21 +103,46 @@ func setValue(root *Element, i, num, val int) {
 	s()
 }
 
-func reverse(root *Element) {
-	if root == nil {
+func reverse(list *Element) {
+	if list == nil {
 		fmt.Println("Error!")
 		return
 	}
-	//o := root
 
-	var j *Element = nil
-	var i *Element = nil
+	var currentKeeper *Element
+	var nextKeeper *Element
 
-	for root != nil {
-		j = root.next
-		root.next = i
-		i = root
-		root = j
+	for list != nil {
+		currentKeeper = list.next
+		list.next = nextKeeper
+
+		nextKeeper = list
+		list = currentKeeper
 	}
 	return
 }
+
+/*
+reverse
+__________list: 1234     ck:nil     nk:nil
+1 итерация
+ck = ln   list: 1234     ck:234     nk:nil
+ln = nk   list: 1nil     ck:234     nk:nil
+nk = l    list: 1nil     ck:234     nk:1nil
+l = ck    list: 234      ck:234     nk:1nil
+2 итерация
+ck = ln   list: 234      ck:34      nk:1nil
+ln = nk   list: 21nil    ck:34      nk:1nil
+nk = l    list: 21nil    ck:34      nk:21nil
+l = ck    list: 34       ck:34      nk:21nil
+3 итерация
+ck = ln   list: 34       ck:4       nk:21nil
+ln = nk   list: 321nil   ck:4       nk:21nil
+nk = l    list: 321nil   ck:4       nk:321nil
+l = ck    list: 4        ck:4       nk:321nil
+4 итерация
+ck = ln   list: 4        ck:nil     nk:321nil
+ln = nk   list: 4321nil  ck:nil     nk:321nil
+nk = l    list: 4321nil  ck:nil     nk:4321nil
+l = ck    list: nil      ck:nil     nk:4321nil
+*/
