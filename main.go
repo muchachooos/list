@@ -126,22 +126,22 @@ reverse
 __________list: 1234     ck:nil     nk:nil
 1 итерация
 ck = ln   list: 1234     ck:234     nk:nil
-ln = nk   list: 1nil     ck:234     nk:nil
-nk = l    list: 1nil     ck:234     nk:1nil
-l = ck    list: 234      ck:234     nk:1nil
+ln = nk   list: 1        ck:234     nk:nil
+nk = l    list: 1        ck:234     nk:1
+l = ck    list: 234      ck:234     nk:1
 2 итерация
-ck = ln   list: 234      ck:34      nk:1nil
-ln = nk   list: 21nil    ck:34      nk:1nil
-nk = l    list: 21nil    ck:34      nk:21nil
-l = ck    list: 34       ck:34      nk:21nil
+ck = ln   list: 234      ck:34      nk:1
+ln = nk   list: 21       ck:34      nk:1
+nk = l    list: 21       ck:34      nk:21
+l = ck    list: 34       ck:34      nk:21
 3 итерация
-ck = ln   list: 34       ck:4       nk:21nil
-ln = nk   list: 321nil   ck:4       nk:21nil
-nk = l    list: 321nil   ck:4       nk:321nil
-l = ck    list: 4        ck:4       nk:321nil
+ck = ln   list: 34       ck:4       nk:21
+ln = nk   list: 321      ck:4       nk:21
+nk = l    list: 321      ck:4       nk:321
+l = ck    list: 4        ck:4       nk:321
 4 итерация
-ck = ln   list: 4        ck:nil     nk:321nil
-ln = nk   list: 4321nil  ck:nil     nk:321nil
-nk = l    list: 4321nil  ck:nil     nk:4321nil
-l = ck    list: nil      ck:nil     nk:4321nil
+ck = ln   list: 4        ck:nil     nk:321
+ln = nk   list: 4321     ck:nil     nk:321
+nk = l    list: 4321     ck:nil     nk:4321
+l = ck    list: nil      ck:nil     nk:4321
 */
